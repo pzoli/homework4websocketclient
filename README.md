@@ -2,5 +2,5 @@
 
 ## Setup
 
-Please copy example.env to .env and setup Webscoket URL point to your [server](https://github.com/pzoli/Homework4WebsocketServer/)
+Please update enviromets for set Websocket [server](https://github.com/pzoli/Homework4WebsocketServer/) in src/environments folder. Update ng serve in package.json for correct SSL keys.
 
