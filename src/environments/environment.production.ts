@@ -1,3 +1,3 @@
 export const environment = {
-    WEBSOCKET_URL: 'wss://localhost:8443/video-stream'
+    WEBSOCKET_URL: 'wss://192.168.1.161:8443/video-stream'
 };
