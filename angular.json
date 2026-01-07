@@ -69,6 +69,12 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "allowedHosts": [
+              "lenovo.me.local",
+              "localhost"
+           ]
+          },
           "configurations": {
             "production": {
               "buildTarget": "homework4websocketclient:build:production"
