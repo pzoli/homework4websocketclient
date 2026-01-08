@@ -14,7 +14,7 @@ export class AppComponent {
   private socket!: WebSocket;
 
   ngOnInit() {
-    this.socket = new WebSocket(environment.WEBSOCKET_URL);//lenovo-e16g2.me.local
+    this.socket = new WebSocket(environment.WEBSOCKET_URL);
     this.socket.onclose = () => console.log('WebSocket connection closed');
     this.socket.onopen = () => this.startCamera();
     this.socket.onerror = (error) => console.error('WebSocket error:', error);
@@ -22,7 +22,7 @@ export class AppComponent {
 
   async startCamera() {
     const stream = await navigator.mediaDevices.getUserMedia({ 
-      video: { width: 1920, height: 1080, frameRate: 20 } , audio: true
+      video: { width: 800, height: 600, frameRate: 20 } , audio: true
     });
     this.videoElement.nativeElement.srcObject = stream;
 
@@ -35,14 +35,10 @@ export class AppComponent {
 
     mediaRecorder.ondataavailable = async (event) => {
       if (event.data.size > 0 && this.socket.readyState === WebSocket.OPEN) {
-        // Küldés előtt érdemes ellenőrizni az első csomagot
         this.socket.send(event.data);
       }
     };
 
-    // Ahelyett, hogy manuálisan rángatnád a requestData-t:
-    // Indítsd el fix, 1000ms-os időközökkel. 
-    // A MediaRecorder így szabályos WebM blokkokat generál.
     mediaRecorder.start(1000); 
   }
 }
