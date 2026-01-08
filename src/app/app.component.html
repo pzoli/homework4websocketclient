@@ -1,1 +1,5 @@
 <video #video autoplay [muted]="true" playsinline></video>
+<div>
+<button (click)="startRecording()" [disabled]="mediaRecorder">Start Camera</button>
+<button (click)="stopRecording()" [disabled]="!mediaRecorder">Stop Recording</button>
+</div>
