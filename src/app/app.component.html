@@ -1,5 +1,8 @@
 <video #video autoplay [muted]="true" playsinline></video>
 <div>
+    <input type="text" [disabled]="mediaRecorder != undefined" [(ngModel)]="sourceName" placeholder="Source Name"/>
+</div>
+<div>
 <button (click)="startRecording()" [disabled]="mediaRecorder">Start Camera</button>
 <button (click)="stopRecording()" [disabled]="!mediaRecorder">Stop Recording</button>
 </div>
